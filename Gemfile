@@ -21,6 +21,9 @@ gemspec
 #gem 'rack-ssl-enforcer', require: 'rack/ssl-enforcer'
 #gem 'acts-as-taggable-on', '~> 3.5.0'
 
+gem 'fog'
+gem 'fog-aws'
+gem 'carrierwave'
 
 group :development do
   gem 'capistrano'
