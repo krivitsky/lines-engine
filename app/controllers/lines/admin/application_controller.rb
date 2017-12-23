@@ -14,7 +14,6 @@ module Lines
       before_action :authorize
 
       layout 'lines/admin'
-
     end
     
   end

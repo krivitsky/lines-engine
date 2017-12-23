@@ -6,7 +6,8 @@ module Lines
 
     class PicturesController < ApplicationController
       def create
-        @picture = Picture.create(picture_params)
+        @article = Article.find(params[:article_id])
+        @picture = @article.pictures.create(picture_params)
       end
 
       # PUT /admin/pictures/1

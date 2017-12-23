@@ -3,19 +3,29 @@
   <div class="images-overlay-inner">
     <h2><%= t('lines.buttons.insert_image').html_safe %></h2>
 
-    <%= form_for [:admin, Lines::Picture.new], {enctype: "multipart/form-data"} do |f| %>
-      <input id="picture_image" multiple="multiple" name="picture[image]" type="file" />
-      <label for="picture_image"><%= t('lines.buttons.upload_image').html_safe %></label>
+    <% if @article.new_record? %>
+
+        Save the article as a draft first, then you'll be able to add pictures.
+
+    <% else %>
+
+        <%= form_for [:admin, Lines::Picture.new], {enctype: "multipart/form-data"} do |f| %>
+            <input type="hidden" name="article_id" value="<%= @article.id %>" />
+            <input id="picture_image" multiple="multiple" name="picture[image]" type="file" />
+            <label for="picture_image"><%= t('lines.buttons.upload_image').html_safe %></label>
+        <% end %>
+
+        <script id="template-upload" type="text/x-tmpl">
+            <div class="upload">
+                <div class="progress">
+                    <div class="bar" style="width: 0%"></div>
+                    <div class="percent">0%</div>
+                </div>
+            </div>
+        </script>
     <% end %>
 
-    <script id="template-upload" type="text/x-tmpl">
-      <div class="upload">
-        <div class="progress">
-          <div class="bar" style="width: 0%"></div>
-          <div class="percent">0%</div>
-        </div>
-      </div>
-    </script>
+
 
     <div class="images">
       <% if @article.pictures.any? %>
