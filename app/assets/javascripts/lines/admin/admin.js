@@ -297,3 +297,12 @@ $(document).ready(function() {
   });
 
 });
+
+
+$(document).on('click', '.btn-cheatsheet-nomenu', function(e) {
+    console.log('cheatsheet');
+    e.preventDefault();
+    //navbar.toggle_navbar();
+    $('.cheatsheet').fadeIn('fast');
+    $('body').addClass('no-scroll');
+});
