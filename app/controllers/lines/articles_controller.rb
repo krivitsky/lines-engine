@@ -56,7 +56,7 @@ module Lines
           type: 'article',
           url: url_for(@article),
           site_name: SITE_TITLE,
-          description: render_teaser(@article) #@article.sub_title
+          description: @article.sub_title
       }
       meta_tags[:image] = CONFIG[:host] + @article.image_url if @article.image_url.present?
       set_meta_tags title: @article.title,
