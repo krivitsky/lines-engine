@@ -21,11 +21,11 @@ module Lines
             @articles = Article.published.tagged_with(params[:tag]).page(params[:page].to_i)
           else
             @articles = Article.published.page(params[:page].to_i).padding(1)
-          end
-          
-          if @articles.first_page?
-            if @first_article = Article.published.first
-              @first_article.teaser = nil unless @first_article.teaser.present?
+
+            if @articles.first_page?
+              if @first_article = Article.published.first
+                @first_article.teaser = nil unless @first_article.teaser.present?
+              end
             end
           end
           
