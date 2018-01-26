@@ -32,7 +32,8 @@ module Lines
         @first_page = true
 
         respond_to do |format|
-          format.html {render :show, layout: 'lines/application'}
+          # format.html {render :show, layout: 'lines/application'}
+          format.html
         end
       end
 

@@ -1,6 +1,6 @@
 <%= render_navbar do %>
   <%= link_to t('lines.buttons.new_article').html_safe, new_admin_article_path, class: "btn btn-new-article highlight" %>  
-  <%= link_to t('lines.buttons.visit_blog').html_safe, lines.root_path, class: "btn btn-view-blog" %>
+  <!--<%= link_to t('lines.buttons.visit_blog').html_safe, lines.root_path, class: "btn btn-view-blog" %>-->
 <% end %>
 
 <% if @articles_unpublished.size > 0 %>
