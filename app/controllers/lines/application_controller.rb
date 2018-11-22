@@ -5,7 +5,8 @@ module Lines
 
       # sets the current_lines_user if one exists in session
       def current_lines_user
-        @current_lines_user ||= Lines::User.find(session[:user_id]) if session[:user_id]
+        #@current_lines_user ||= Lines::User.find(session[:user_id]) if session[:user_id]
+        @current_lines_user = current_user if current_user && current_user.is_admin?
       end
       helper_method :current_lines_user
 
