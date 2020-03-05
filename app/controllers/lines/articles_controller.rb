@@ -28,19 +28,19 @@ module Lines
               end
             end
           end
-          
+
           set_meta_tags title: SITE_TITLE,
                         description: CONFIG[:meta_description],
                         keywords: KEYWORDS,
-                        open_graph: { title: SITE_TITLE,
-                                        type: 'website',
-                                        url: articles_url,
-                                        site_name: SITE_TITLE,
-                                        image: CONFIG[:og_logo]
-                                      }
+                        open_graph: {title: SITE_TITLE,
+                                     type: 'website',
+                                     url: articles_url,
+                                     site_name: SITE_TITLE,
+                                     image: CONFIG[:og_logo]
+                        }
 
         }
-        format.atom{
+        format.atom {
           @articles = Article.published
         }
       end
@@ -49,7 +49,13 @@ module Lines
     # Shows specific article
     def show
       @first_page = true
-      @article = Article.published.find(params[:id])
+      @article = Article.published.find_by(id: params[:id])
+
+      if @article.nil?
+        redirect_to "/blog"
+        return
+      end
+
       @article.teaser = nil unless @article.teaser.present?
       meta_tags = {
           title: @article.title,

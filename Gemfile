@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby '2.4.2'
+ruby '2.6.5'
 
 # Declare your gem's dependencies in lines.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
